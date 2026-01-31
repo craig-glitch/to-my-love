@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To Lorraine the queen of my heart❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:radial-gradient(circle at top,#2b2b2b,#000);
+  color:#fff;
+  font-family:Poppins,sans-serif;
+  overflow-x:hidden;
+}
+
+/* INTRO */
+.intro{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+  animation:introFade 3.5s forwards;
+}
+.intro h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem;
+  color:#e6b3c7;
+  letter-spacing:3px;
+}
+@keyframes introFade{
+  0%,85%{opacity:1}
+  100%{opacity:0;pointer-events:none}
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:100px 20px 40px;
+}
+header h2{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+}
+header span{color:#e6b3c7}
+
+/* MESSAGE */
+.message{
+  max-width:900px;
+  margin:60px auto;
+  text-align:center;
+  font-size:1.15rem;
+  line-height:2;
+  color:#ddd;
+  padding:0 20px;
+}
+
+/* BIG CIRCULAR GALLERY */
+.circle-gallery{
+  height:650px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  perspective:1400px;
+  margin:120px 0;
+}
+.circle{
+  position:relative;
+  width:520px;
+  height:520px;
+  transform-style:preserve-3d;
+  animation:spin 50s linear infinite;
+}
+.circle img{
+  position:absolute;
+  width:180px;
+  height:240px;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,.8);
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes spin{
+  from{transform:rotateY(0deg)}
+  to{transform:rotateY(360deg)}
+}
+@keyframes float{
+  50%{transform:translateY(-14px)}
+}
+
+/* FLOATING EMOJI HEARTS */
+.emoji{
+  position:fixed;
+  bottom:-40px;
+  font-size:24px;
+  animation:rise 6s linear infinite;
+  opacity:0.8;
+}
+@keyframes rise{
+  from{transform:translateY(0);opacity:1}
+  to{transform:translateY(-110vh);opacity:0}
+}
+
+/* MUSIC PLAYER */
+.player{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#111;
+  padding:15px 20px;
+  border-radius:40px;
+  box-shadow:0 0 25px rgba(230,179,199,.6);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.play-btn{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#e6b3c7;
+  border:none;
+  color:#000;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 0 20px #e6b3c7;
+}
+.waves{
+  display:flex;
+  gap:4px;
+}
+.wave{
+  width:4px;
+  height:10px;
+  background:#e6b3c7;
+  animation:wave 1s infinite ease-in-out;
+}
+.wave:nth-child(2){animation-delay:.1s}
+.wave:nth-child(3){animation-delay:.2s}
+.wave:nth-child(4){animation-delay:.3s}
+@keyframes wave{
+  50%{height:26px}
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:100px 20px;
+  font-family:'Playfair Display',serif;
+  font-size:1.7rem;
+  color:#e6b3c7;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .circle{width:360px;height:360px}
+  .circle img{width:130px;height:180px}
+  header h2{font-size:2.2rem}
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro"><h1>For You Babe🫂😍</h1></div>
+
+<header>
+  <h2>To Lorraine the queen of my heart❤️<span></span></h2>
+</header>
+
+<section class="message">
+  Loving you is the quiet certainty I carry everywhere.  
+  In your presence, time softens.  
+  In your smile, the world feels kind again.  
+
+  Every photo here is a memory,  
+  every note a feeling I never learned how to explain —  
+  except by staying, choosing you, again and again.  
+
+  This isn’t just affection.  
+  This is home.
+</section>
+
+<section class="circle-gallery">
+  <div class="circle">
+    <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg">
+    <img src="img4.jpg"><img src="img5.jpg"><img src="img6.jpg">
+    <img src="img7.jpg"><img src="img8.jpg"><img src="img9.jpg">
+    <img src="img10.jpg">
+  </div>
+</section>
+
+<div class="footer">
+  I love you — in every version of tomorrow.
+</div>
+
+<!-- MUSIC -->
+<audio id="song" src="song.mp3"></audio>
+
+<div class="player">
+  <button class="play-btn" onclick="togglePlay()">▶</button>
+  <div class="waves">
+    <div class="wave"></div><div class="wave"></div>
+    <div class="wave"></div><div class="wave"></div>
+  </div>
+</div>
+
+<script>
+/* IMAGE CIRCLE POSITION */
+const imgs=document.querySelectorAll(".circle img");
+const radius=260;
+for(let i=0;i<imgs.length;i++){
+  imgs[i].style.transform=
+    "rotateY("+(360/imgs.length*i)+"deg) translateZ("+radius+"px)";
+}
+
+/* FLOATING EMOJIS */
+const emojis=["💖","💕","💗","✨","🥰"];
+setInterval(()=>{
+  const e=document.createElement("div");
+  e.className="emoji";
+  e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+  e.style.left=Math.random()*100+"vw";
+  e.style.animationDuration=4+Math.random()*3+"s";
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),7000);
+},600);
+
+/* MUSIC CONTROL */
+const song=document.getElementById("song");
+const btn=document.querySelector(".play-btn");
+function togglePlay(){
+  if(song.paused){
+    song.play();
+    btn.textContent="❚❚";
+  }else{
+    song.pause();
+    btn.textContent="▶";
+  }
+}
+</script>
+
+</body>
+</html>
