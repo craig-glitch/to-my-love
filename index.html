@@ -2,231 +2,306 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>to the love of my life💖</title>
+<title>to lorraine the queen of my heart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffb3ff, #b366ff);
-  overflow: hidden;
-  color: #001f7f;
-  text-align: center;
-  perspective: 1500px;
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ROMANTIC BREATHING BACKGROUND */
+body{
+  font-family:'Inter',sans-serif;
+  color:#fff7f9;
+  background:
+    radial-gradient(1200px at 20% 30%, #ffb3c6, transparent),
+    radial-gradient(1200px at 80% 70%, #ffd6e0, transparent),
+    linear-gradient(180deg,#ff8fab,#ffb3c6,#ffd6e0);
+  animation:breath 16s ease-in-out infinite;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-/* HEADINGS */
-h1 {
-  font-size: 2em;
-  margin-top: 0.5em;
-  color: #001f7f;
-  text-shadow: 1px 1px 5px #ffffff;
-  animation: glowText 2s infinite alternate;
+@keyframes breath{
+  0%,100%{background-position:20% 30%,80% 70%,center}
+  50%{background-position:25% 35%,75% 65%,center}
 }
 
-h2 {
-  font-size: 1.2em;
-  margin-top: 0.2em;
-  color: #001f7f;
-  text-shadow: 1px 1px 3px #ffffff;
+/* SOFT FILM GRAIN */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events:none;
+  mix-blend-mode:overlay;
+  z-index:999;
 }
 
-/* SPINNER CONTAINER */
-.spinner-container {
-  width: 100vw;
-  height: 70vh;
-  margin-top: 0;
-  position: relative;
-  transform-style: preserve-3d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* FALLING ROSES */
+.rose{
+  position:fixed;
+  top:-80px;
+  font-size:28px;
+  animation:fall linear forwards;
+  pointer-events:none;
+  opacity:.85;
 }
 
-.spinner-container img {
-  width: 25vw;
-  max-width: 300px;
-  height: auto;
-  border-radius: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  box-shadow: 0 0 50px #ff66cc;
-  transition: transform 0.3s ease;
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
 }
 
-/* LOVE MESSAGES */
-.messages {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  pointer-events: none;
-  color: #001f7f;
+/* LOCK SCREEN */
+.lock{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,#ff8fab,#ffb3c6);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+  transition:opacity 1.6s ease;
 }
 
-.messages p {
-  font-size: 1em;
-  line-height: 1.4em;
-  margin: 0.3em 0;
-  color: #001f7f;
-  text-shadow: 1px 1px 2px #ffffff;
-  animation: floatText 6s infinite alternate;
+.lock.hidden{
+  opacity:0;
+  pointer-events:none;
 }
 
-/* CUSTOM MUSIC BUTTON */
-.music-button {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ff66cc, #ff3399);
-  box-shadow: 0 0 15px #ff66cc, 0 0 30px #ff3399;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: pulse 2s infinite alternate;
-  z-index: 10;
+.lock h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.4rem;
+  letter-spacing:2px;
+  color:#fff;
 }
 
-.music-button::before {
-  content: '▶';
-  font-size: 1.8em;
-  color: white;
-  text-shadow: 0 0 10px #fff;
-  transition: transform 0.3s;
+.lock button{
+  margin-top:30px;
+  padding:14px 38px;
+  font-size:1.1rem;
+  border-radius:40px;
+  border:none;
+  background:#fff;
+  color:#ff4d6d;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(255,77,109,.4);
+  transition:.3s;
+}
+.lock button:hover{transform:scale(1.05)}
+
+/* MAIN */
+main{
+  max-width:1100px;
+  margin:0 auto;
+  padding:120px 30px;
 }
 
-.music-button.playing::before {
-  content: '⏸';
+/* TITLE */
+.title{
+  text-align:center;
+  margin-bottom:120px;
+}
+.title h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2rem;
+}
+.title p{
+  opacity:.8;
+  margin-top:12px;
 }
 
-/* PULSE ANIMATION */
-@keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 15px #ff66cc, 0 0 30px #ff3399; }
-  50% { transform: scale(1.1); box-shadow: 0 0 25px #ff66cc, 0 0 50px #ff3399; }
-  100% { transform: scale(1); box-shadow: 0 0 15px #ff66cc, 0 0 30px #ff3399; }
+/* LETTER */
+.letter{
+  max-width:820px;
+  margin:0 auto 140px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;
+  line-height:1.9;
+  background:rgba(255,255,255,.25);
+  border-radius:30px;
+  padding:70px;
+  backdrop-filter:blur(18px);
+  box-shadow:0 30px 90px rgba(255,77,109,.35);
+  color:#5b1024;
+}
+.cursor{
+  display:inline-block;
+  width:2px;
+  height:1.2em;
+  background:#5b1024;
+  animation:blink 1s infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+/* ARCHIVE */
+.archive{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
+}
+.archive img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:0 25px 60px rgba(255,77,109,.35);
+  opacity:0;
+  transform:translateY(40px);
+  animation:reveal 1.2s forwards;
+}
+.archive img:nth-child(n){
+  animation-delay:calc(var(--i)*0.25s);
+}
+@keyframes reveal{
+  to{opacity:1;transform:translateY(0)}
 }
 
-/* FLOATING HEARTS/IMAGES */
-.floating {
-  position: absolute;
-  font-size: 2em;
-  pointer-events: none;
-  user-select: none;
-  z-index: 5;
+/* MUSIC */
+.music{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background:rgba(255,255,255,.35);
+  padding:14px 20px;
+  border-radius:50px;
+  backdrop-filter:blur(14px);
+}
+.music button{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  background:#ff4d6d;
+  color:#fff;
+  font-size:18px;
+  box-shadow:0 0 30px rgba(255,77,109,.7);
+}
+.bar{
+  width:4px;
+  height:14px;
+  background:#ff4d6d;
+  animation:pulse 1s infinite ease-in-out;
+}
+.bar:nth-child(2){animation-delay:.15s}
+.bar:nth-child(3){animation-delay:.3s}
+@keyframes pulse{50%{height:32px}}
+
+@media(max-width:700px){
+  .letter{padding:40px;font-size:1.3rem}
+  .title h2{font-size:2.3rem}
 }
 </style>
 </head>
+
 <body>
 
-<h1>Happy Valentine's Day 💖</h1>
-<h2>to lorraine the love of my life</h2>
-
-<div class="spinner-container">
-  <img src="img1.jpg">
-  <img src="img2.jpg">
-  <img src="img3.jpg">
-  <img src="img4.jpg">
-  <img src="img5.jpg">
-  <img src="img6.jpg">
-  <img src="img7.jpg">
-  <img src="img8.jpg">
-  <img src="img9.jpg">
-  <img src="img10.jpg">
+<div class="lock" id="lock">
+  <h1>to lorraine the queen of my heart</h1>
+  <button onclick="openJournal()">Open Journal</button>
 </div>
 
-<div class="messages">
-  <p>Roses are red, violets are purple… My heart beats for you, Lorraine 💜</p>
-  <p>Every moment with you, Matthew, is a beautiful memory ❤️</p>
-  <p>Our love story sparkles brighter than the stars above 💖</p>
-  <p>Forever together, Lorraine & Matthew, bound by love 💕</p>
-  <p>You make my heart skip, my soul dance, and my world glow 🌟</p>
+<main>
+
+  <section class="title">
+    <h2>to lorraine the queen of my heart</h2>
+    <p>this is where love lives</p>
+  </section>
+
+  <section class="letter">
+    <span id="text"></span><span class="cursor"></span>
+  </section>
+
+  <section class="archive">
+    <img src="img1.jpg" style="--i:1">
+    <img src="img2.jpg" style="--i:2">
+    <img src="img3.jpg" style="--i:3">
+    <img src="img4.jpg" style="--i:4">
+    <img src="img5.jpg" style="--i:5">
+    <img src="img6.jpg" style="--i:6">
+    <img src="img7.jpg" style="--i:7">
+    <img src="img8.jpg" style="--i:8">
+    <img src="img9.jpg" style="--i:9">
+    <img src="img10.jpg" style="--i:10">
+  </section>
+
+</main>
+
+<audio id="song" src="song.mp3"></audio>
+<div class="music">
+  <button id="play">▶</button>
+  <div class="bar"></div><div class="bar"></div><div class="bar"></div>
 </div>
-
-<!-- Floating hearts/images -->
-<div id="floatingContainer"></div>
-
-<!-- Hidden audio -->
-<audio id="audio" src="song.mp3" loop></audio>
-
-<!-- Custom music button -->
-<button class="music-button" id="musicBtn"></button>
 
 <script>
-// ---------------- 3D Circular Orbit ----------------
-const images = document.querySelectorAll('.spinner-container img');
-const numImages = images.length;
-let angle = 0;
-
-function animateCarousel() {
-  angle += 0.5;
-  const radius = Math.min(window.innerWidth, window.innerHeight) * 0.35;
-  images.forEach((img, i) => {
-    const imgAngle = (i * 360 / numImages + angle) * Math.PI / 180;
-    const x = Math.cos(imgAngle) * radius;
-    const z = Math.sin(imgAngle) * radius;
-    const y = Math.sin(imgAngle * 2) * 40;
-    img.style.transform = `translateX(${x}px) translateY(${y}px) translateZ(${z}px)`;
-  });
-  requestAnimationFrame(animateCarousel);
+/* OPEN */
+function openJournal(){
+  document.getElementById("lock").classList.add("hidden");
 }
-animateCarousel();
 
-// ---------------- MUSIC BUTTON ----------------
-const audio = document.getElementById('audio');
-const musicBtn = document.getElementById('musicBtn');
-musicBtn.addEventListener('click', ()=>{
-  if(audio.paused){
-    audio.play();
-    musicBtn.classList.add('playing');
-  } else {
-    audio.pause();
-    musicBtn.classList.remove('playing');
+/* TYPEWRITER */
+const message = `
+Lorraine,
+
+Loving you feels warm,
+steady, and certain.
+Not rushed. Not loud.
+
+Just real.
+
+You are joy,
+you are softness,
+you are my favorite place to be.
+
+Always yours.
+`;
+
+let i=0;
+const speed=40;
+const target=document.getElementById("text");
+function type(){
+  if(i<message.length){
+    target.textContent+=message.charAt(i);
+    i++;
+    setTimeout(type,speed);
   }
-});
-
-// ---------------- FLOATING HEARTS/IMAGES ----------------
-const floatingContainer = document.getElementById('floatingContainer');
-const floatEmojis = ['💖','💞','💘','❤️','💓'];
-const floatingItems = [];
-
-for(let i=0;i<10;i++){
-  const f = document.createElement('div');
-  f.className = 'floating';
-  f.textContent = floatEmojis[i % floatEmojis.length];
-  f.style.left = Math.random()*window.innerWidth + 'px';
-  f.style.top = Math.random()*window.innerHeight + 'px';
-  floatingContainer.appendChild(f);
-  floatingItems.push({
-    el: f,
-    x: parseFloat(f.style.left),
-    y: parseFloat(f.style.top),
-    dx: (Math.random()-0.5)*2,
-    dy: (Math.random()-0.5)*2
-  });
 }
+setTimeout(type,1200);
 
-function animateFloating(){
-  floatingItems.forEach(f=>{
-    f.x += f.dx;
-    f.y += f.dy;
-    // bounce off edges
-    if(f.x < 0 || f.x > window.innerWidth-30) f.dx *= -1;
-    if(f.y < 0 || f.y > window.innerHeight-30) f.dy *= -1;
-    f.el.style.left = f.x + 'px';
-    f.el.style.top = f.y + 'px';
-  });
-  requestAnimationFrame(animateFloating);
-}
-animateFloating();
+/* MUSIC */
+const song=document.getElementById("song");
+const play=document.getElementById("play");
+play.onclick=()=>{
+  if(song.paused){
+    song.play(); play.textContent="❚❚";
+  }else{
+    song.pause(); play.textContent="▶";
+  }
+};
+
+/* FALLING ROSES */
+const flowers=["🌹","💐","🌸"];
+setInterval(()=>{
+  const rose=document.createElement("div");
+  rose.className="rose";
+  rose.textContent=flowers[Math.floor(Math.random()*flowers.length)];
+  rose.style.left=Math.random()*100+"vw";
+  rose.style.animationDuration=(6+Math.random()*6)+"s";
+  rose.style.fontSize=(22+Math.random()*20)+"px";
+  document.body.appendChild(rose);
+  setTimeout(()=>rose.remove(),12000);
+},700);
 </script>
 
 </body>
